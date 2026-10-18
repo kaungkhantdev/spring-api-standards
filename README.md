@@ -7,6 +7,7 @@ Built and tested against Spring Boot 4.1.1 (Spring Framework 7, Java 21).
 | Folder | What's in it |
 |---|---|
 | [api-response](api-response/README.md) | The `ApiResponse` envelope (`success`, `data`, `error`, `meta`) for every response, status codes, paging, JSON conventions, a mapper, and a complete example `order` feature with Swagger annotations |
+| [enum-handling](enum-handling/README.md) | `DbEnum`, `DbEnumConverter` and `WebConfig`, so enums use one lowercase value (`dine_in`) in JSON, URLs and the database |
 | [error-handling](error-handling/README.md) | `BusinessException`, `GlobalExceptionHandler` and `SecurityConfig`, so every error comes back in the same envelope with the right HTTP status; with flow diagrams |
 | [project-structure](project-structure/README.md) | How the code is organised: feature folders, layers, enums, tests and rules |
 
@@ -17,9 +18,12 @@ spring-api-standards/
 ├── README.md                ← this page
 ├── api-response/
 │   ├── README.md
-│   ├── common/              ← ApiResponse, ApiError, Meta, Pagination, enum helpers, WebConfig
+│   ├── common/              ← ApiResponse, ApiError, Meta, Pagination
 │   ├── order/               ← example feature: controller, service, entity, enums, dto, mapper
 │   └── examples/            ← real JSON for every request and response
+├── enum-handling/
+│   ├── README.md
+│   └── common/              ← DbEnum, DbEnumConverter, WebConfig
 ├── error-handling/
 │   ├── README.md
 │   ├── common/              ← exception base classes, GlobalExceptionHandler, SecurityConfig
@@ -32,7 +36,7 @@ spring-api-standards/
 
 ## Using it in a project
 
-1. **Copy the `common/` Java files** from `api-response/` and `error-handling/` into your project's `src/main/java/`, keeping the package paths. They depend on each other, so copy both.
+1. **Copy the `common/` Java files** from `api-response/`, `error-handling/` and `enum-handling/` into your project's `src/main/java/`, keeping the package paths. They depend on each other, so copy all three.
 2. **Change the base package.** The files use `com.astronity.pos`; replace it with your project's base package, e.g. `com.astronity.inventory`. In IntelliJ: right-click the package → **Refactor → Rename**.
 3. **Add the validation starter** to `pom.xml`, so `@Valid` errors are reported:
 

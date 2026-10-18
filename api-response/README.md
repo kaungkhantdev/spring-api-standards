@@ -129,7 +129,7 @@ return orderMapper.toResponse(order, tableService.getTableNames(order.getTableId
 | Missing value | `null`, the field is still present | `"tableName": null` for takeaway |
 | Empty list | `[]`, never `null` | `"items": []` |
 
-Enums use the same lowercase value everywhere: `DbEnum` for JSON, `WebConfig` for URLs, and each enum's `JpaConverter` (built on `DbEnumConverter`) for the database.
+Enums use the same lowercase value in JSON, URLs and the database; how that works is in [Enum handling](../enum-handling/README.md).
 
 ## Files
 
@@ -144,11 +144,6 @@ api-response/
 │   │   ├── ApiError.java              ← code, message, details
 │   │   ├── Meta.java                  ← timestamp, pagination
 │   │   └── Pagination.java
-│   ├── enums/
-│   │   ├── DbEnum.java                ← lowercase enum values in JSON
-│   │   └── DbEnumConverter.java       ← … in the database
-│   └── config/
-│       └── WebConfig.java             ← … in URLs
 └── order/                             ← a complete example feature
     ├── controller/OrderController.java  ← returns ApiResponse, with Swagger annotations
     ├── service/OrderService.java
@@ -158,7 +153,7 @@ api-response/
     └── mapper/OrderMapper.java          ← entity → DTO
 ```
 
-`GlobalExceptionHandler`, the exception classes and `SecurityConfig` are in [error-handling/](../error-handling/README.md).
+`GlobalExceptionHandler`, the exception classes and `SecurityConfig` are in [error-handling/](../error-handling/README.md). The example enums use `DbEnum` and `DbEnumConverter` from [enum-handling/](../enum-handling/README.md).
 
 ## Rules
 

@@ -156,6 +156,8 @@ public enum OrderType implements DbEnum {
 }
 ```
 
+`DbEnum`, `DbEnumConverter` and the `WebConfig` that makes `?status=open` work in URLs are in [Enum handling](../enum-handling/README.md).
+
 Enums and exceptions from another feature may be used directly (for example `payment` reading `OrderStatus` or catching `OrderStateException`); unlike `impl`, `repository` and `entity`, they are part of a feature's public contract.
 
 ### Tests
