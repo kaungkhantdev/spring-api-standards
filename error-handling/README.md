@@ -1,6 +1,6 @@
 # Error Handling
 
-How the Astronity POS backend reports errors. Every error, whatever caused it, has the same shape as a successful response, so the Angular app handles all of them in one place.
+How a Spring Boot API reports errors. Every error, whatever caused it, has the same shape as a successful response, so the client handles all of them in one place.
 
 ## The format
 
@@ -203,4 +203,3 @@ mockMvc.perform(get("/api/orders/42"))
 ## Related docs
 
 - [Project structure](../project-structure/README.md): where `exception/` sits inside a feature
-- [Staff login and permissions](../../pos-docs/flowcharts/12-staff-login-and-permissions.md): when the auth exceptions are thrown

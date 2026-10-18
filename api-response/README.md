@@ -1,6 +1,6 @@
 # API Response
 
-How the Astronity POS backend shapes every response. Success and error responses look the same, so the Angular app reads all of them the same way. How errors are raised is in [Error handling](../error-handling/README.md).
+How a Spring Boot API shapes every response. Success and error responses look the same, so the client (web or mobile app) reads all of them the same way. How errors are raised is in [Error handling](../error-handling/README.md).
 
 ## The envelope
 
