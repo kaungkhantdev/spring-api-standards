@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "The requested resource doesn't exist",
+    "details": []
+  },
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00"
+  }
+}

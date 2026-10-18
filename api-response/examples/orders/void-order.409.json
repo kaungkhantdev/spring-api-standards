@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "ORDER_STATE_INVALID",
+    "message": "A paid order can't be voided; refund it instead",
+    "details": []
+  },
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00"
+  }
+}

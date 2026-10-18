@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "BAD_REQUEST",
+    "message": "A request parameter is missing or invalid",
+    "details": []
+  },
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00"
+  }
+}

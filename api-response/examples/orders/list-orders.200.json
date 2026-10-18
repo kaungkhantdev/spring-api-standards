@@ -1,0 +1,62 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 42,
+      "orderNumber": "ORD-20261016-0042",
+      "orderType": "dine_in",
+      "status": "open",
+      "tableName": "T5",
+      "items": [
+        {
+          "id": 101,
+          "productName": "Pad Thai",
+          "quantity": 2,
+          "unitPrice": 120.00,
+          "lineTotal": 240.00
+        },
+        {
+          "id": 102,
+          "productName": "Thai Iced Tea",
+          "quantity": 1,
+          "unitPrice": 60.00,
+          "lineTotal": 60.00
+        }
+      ],
+      "subtotal": 280.37,
+      "tax": 19.63,
+      "total": 300.00,
+      "openedAt": "2026-10-16T12:30:00+07:00"
+    },
+    {
+      "id": 41,
+      "orderNumber": "ORD-20261016-0041",
+      "orderType": "takeaway",
+      "status": "open",
+      "tableName": null,
+      "items": [
+        {
+          "id": 99,
+          "productName": "Iced Latte",
+          "quantity": 1,
+          "unitPrice": 85.00,
+          "lineTotal": 85.00
+        }
+      ],
+      "subtotal": 79.44,
+      "tax": 5.56,
+      "total": 85.00,
+      "openedAt": "2026-10-16T12:10:00+07:00"
+    }
+  ],
+  "error": null,
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00",
+    "pagination": {
+      "page": 0,
+      "size": 20,
+      "totalElements": 57,
+      "totalPages": 3
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "FORBIDDEN",
+    "message": "You don't have permission to do this",
+    "details": []
+  },
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00"
+  }
+}

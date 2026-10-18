@@ -1,0 +1,17 @@
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "VALIDATION_FAILED",
+    "message": "Some fields are invalid",
+    "details": [
+      {
+        "field": "orderType",
+        "message": "must not be null"
+      }
+    ]
+  },
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00"
+  }
+}

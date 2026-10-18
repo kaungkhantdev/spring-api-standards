@@ -1,0 +1,23 @@
+flowchart TD
+  REQ["HTTP request<br/>e.g. GET /api/orders/99"] --> SEC{"Spring Security<br/>signed in and allowed?"}
+
+  SEC -- "No (401 or 403)" --> EP["SecurityConfig<br/>forwards the error"]
+  SEC -- "Yes" --> CTRL["Controller<br/>OrderController.getOrder(99)"]
+
+  CTRL --> VAL{"Request valid?<br/>@Valid body, URL values"}
+  VAL -- "No" --> SPRINGERR["Spring throws an exception<br/>e.g. MethodArgumentNotValidException"]
+  VAL -- "Yes" --> SVC["Service<br/>OrderServiceImpl.getOrder(99)"]
+
+  SVC --> RULE{"Business rule OK?"}
+  RULE -- "No" --> BIZ["throw new OrderNotFoundException(99)<br/>404, ORDER_NOT_FOUND"]
+  RULE -- "Bug or outage" --> BUG["Unexpected exception<br/>e.g. database down"]
+  RULE -- "Yes" --> OK["Controller returns<br/>ApiResponse.ok(order)<br/>success: true"]
+
+  EP --> GEH
+  SPRINGERR --> GEH
+  BIZ --> GEH
+  BUG --> GEH
+  GEH["GlobalExceptionHandler<br/>returns ApiResponse.fail(...)<br/>success: false"]
+
+  OK --> OUT["JSON response with the real HTTP status<br/>success, data, error, meta"]
+  GEH --> OUT

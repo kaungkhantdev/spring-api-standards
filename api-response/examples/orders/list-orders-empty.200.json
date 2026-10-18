@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "data": [],
+  "error": null,
+  "meta": {
+    "timestamp": "2026-10-18T18:02:15+07:00",
+    "pagination": {
+      "page": 0,
+      "size": 20,
+      "totalElements": 0,
+      "totalPages": 0
+    }
+  }
+}

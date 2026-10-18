@@ -1,0 +1,20 @@
+flowchart LR
+  EX["Exception reaches<br/>GlobalExceptionHandler"] --> H1["BusinessException<br/>e.g. OrderNotFoundException<br/>→ its own status and code"]
+  EX --> H2["MethodArgumentNotValidException<br/>→ 400 VALIDATION_FAILED<br/>+ details per field"]
+  EX --> H3["HttpMessageNotReadableException<br/>→ 400 BAD_REQUEST (bad JSON)"]
+  EX --> H4["Missing or wrong parameter<br/>→ 400 BAD_REQUEST"]
+  EX --> H5["NoResourceFoundException<br/>→ 404 NOT_FOUND (unknown URL)"]
+  EX --> H6["HttpRequestMethodNotSupportedException<br/>→ 405 METHOD_NOT_ALLOWED"]
+  EX --> H7["AuthenticationException<br/>→ 401 UNAUTHORIZED"]
+  EX --> H8["AccessDeniedException<br/>→ 403 FORBIDDEN"]
+  EX --> H9["Anything else<br/>→ 500 INTERNAL_ERROR, logged"]
+
+  H1 --> R["ApiResponse.fail(...)<br/>success: false<br/>error: code, message, details"]
+  H2 --> R
+  H3 --> R
+  H4 --> R
+  H5 --> R
+  H6 --> R
+  H7 --> R
+  H8 --> R
+  H9 --> R
