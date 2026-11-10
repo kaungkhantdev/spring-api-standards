@@ -60,6 +60,7 @@ backend/
     │   │   │   ├── response/           (ApiResponse envelope, ApiError, Meta, Pagination)
     │   │   │   ├── audit/              (AuditLog, AuditLogService)
     │   │   │   ├── enums/              (DbEnum interface, DbEnumConverter base)
+    │   │   │   ├── constant/           (AppConstants: app-wide fixed values)
     │   │   │   └── util/               (NumberGenerator for ORD-, KOT-, INV-)
     │   │   ├── auth/                   ← users, roles, permissions, role_permissions, user_roles, login
     │   │   ├── store/                  ← stores, printers, payment_methods (Settings)
@@ -160,6 +161,19 @@ public enum OrderType implements DbEnum {
 
 Enums and exceptions from another feature may be used directly (for example `payment` reading `OrderStatus` or catching `OrderStateException`); unlike `impl`, `repository` and `entity`, they are part of a feature's public contract.
 
+### Constants
+
+`common/constant/AppConstants.java` holds only fixed values used across the whole app, such as the `/api` base path or a shared header name. It is a `final` class with a private constructor and only `public static final` fields.
+
+Everything else has a more specific home:
+
+| Value | Where it goes | Example |
+|---|---|---|
+| Used by one feature only | That feature, next to the code that uses it | `ORD-` prefix in `NumberGenerator` |
+| Someone may want to change it without a release | `application.yml`, read with `@ConfigurationProperties` | Max wrong passwords, lock duration in `auth/config/AuthProperties` |
+| Error code | Inside its exception class | `"ACCOUNT_LOCKED"` in `AccountLockedException` |
+| One of a fixed set of values | An enum in the feature's `enums/` | `OrderStatus` |
+
 ### Tests
 
 The team works test-first (TDD): write a failing test, make it pass, then tidy up. Tests follow the main folder structure: a test sits in the same package as the class it tests. Example, `order/`:
@@ -258,7 +272,7 @@ flowchart LR
   R --> R1["application.yml"]
   R --> R2["db/migration<br/>V1__init.sql, V2__…"]
 
-  J --> C["common/<br/>config, exception,<br/>audit, enums, util"]
+  J --> C["common/<br/>config, exception,<br/>audit, enums, constant, util"]
   J --> F1["auth/"]
   J --> F2["store/"]
   J --> F3["menu/"]
